@@ -8,7 +8,8 @@ Rails
 * Name time columns (referring to a time of day with no date) with `_time`
   suffixes.
 * Name initializers for their gem name.
-* Order ActiveRecord associations alphabetically by attribute name.
+* Order ActiveRecord associations alphabetically by association type, then
+  attribute name. [Example][order-associations].
 * Order ActiveRecord validations alphabetically by attribute name.
 * Order ActiveRecord associations above ActiveRecord validations.
 * Order controller contents: filters, public methods, private methods.
@@ -18,7 +19,11 @@ Rails
 * Use `def self.method`, not the `scope :method` DSL.
 * Use the default `render 'partial'` syntax over `render partial: 'partial'`.
 * Use `link_to` for GET requests, and `button_to` for other HTTP verbs.
+* Use new-style `validates :name, presence: true` validations, and put all
+  validations for a given column together. [Example][validations].
 
+[order-associations]: /style/rails/sample.rb#L2-L4
+[validations]: /style/rails/sample.rb#L6
 [`app/views/application`]: http://asciicasts.com/episodes/269-template-inheritance
 
 Migrations
@@ -28,9 +33,7 @@ Migrations
 
 * Set an empty string as the default constraint for non-required string and text
   fields. [Example][default example].
-* List timestamps first when creating a new table. [Example][timestamps example].
 
-[timestamps example]: migration.rb
 [default example]: migration.rb#L6
 
 Routes
